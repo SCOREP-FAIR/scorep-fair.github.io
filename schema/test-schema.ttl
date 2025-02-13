@@ -1,0 +1,138 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<scorep:Binary>
+  a rdfs:Class ;
+  rdfs:comment "A linked object." ;
+  rdfs:label "The linked binary" .
+
+<scorep:EnvironmentVariable>
+  a rdfs:Class ;
+  rdfs:comment "A variable that is part of the environment in which an experiment or instrumentation is conducted." ;
+  rdfs:label "Environment Variable" .
+
+<scorep:Experiment>
+  a rdfs:Class ;
+  rdfs:comment "An experiment in the Score-P profiling environment." ;
+  rdfs:label "Experiment" .
+
+<scorep:Object>
+  a rdfs:Class ;
+  rdfs:comment "A compiled object." ;
+  rdfs:label "The compiled object" .
+
+<scorep:compiler-flags>
+  a rdf:Property ;
+  rdfs:comment "The compiler flags used" ;
+  rdfs:label "compiler flags" ;
+  rdfs:range "xsd:string" .
+
+<scorep:compiler>
+  a rdf:Property ;
+  rdfs:comment "The compiler used for the instrumentation." ;
+  rdfs:label "compiler" ;
+  rdfs:range "xsd:string" .
+
+<scorep:datetime>
+  a rdf:Property ;
+  rdfs:comment "A timestamp for when an event occurred." ;
+  rdfs:domain "rdfs:Resource" ;
+  rdfs:label "datetime" ;
+  rdfs:range "xsd:datetime" .
+
+<scorep:elfHash>
+  a rdf:Property ;
+  rdfs:comment "The Jenkins One-at-a-time-hash of selectected elf sections." ;
+  rdfs:label "Hash of selected elf sections" .
+
+<scorep:envName>
+  a rdf:Property ;
+  rdfs:comment "The name of an environment variable." ;
+  rdfs:domain "scorep:EnvironmentVariable" ;
+  rdfs:label "name" ;
+  rdfs:range "xsd:string" .
+
+<scorep:envValue>
+  a rdf:Property ;
+  rdfs:comment "The value of a set environment variable." ;
+  rdfs:domain "scorep:EnvironmentVariable" ;
+  rdfs:label "value" ;
+  rdfs:range "xsd:string" .
+
+<scorep:environment>
+  a rdf:Property ;
+  rdfs:comment "The environment in which an experiment or instrumentation is conducted." ;
+  rdfs:domain "rdfs:Resource" ;
+  rdfs:label "environment" ;
+  rdfs:range "scorep:EnvironmentVariable" .
+
+<scorep:executable>
+  a rdf:Property ;
+  rdfs:comment "The final executable" ;
+  rdfs:label "executable" ;
+  rdfs:range "xsd:string" .
+
+<scorep:mpiVersion>
+  a rdf:Property ;
+  rdfs:comment "Version of MPI during compile time" ;
+  rdfs:domain "scorep:Experiment" ;
+  rdfs:label "MPI-Version" ;
+  rdfs:range "xsd:string" .
+
+<scorep:mppSize>
+  a rdf:Property ;
+  rdfs:comment "Worldsize of Multiprocess tracing" ;
+  rdfs:domain "scorep:Experiment" ;
+  rdfs:label "mpp-size" ;
+  rdfs:range "xsd:integer" .
+
+<scorep:object-files>
+  a rdf:Property ;
+  rdfs:comment "The object files used to link the object." ;
+  rdfs:domain "scorep:Binary" ;
+  rdfs:label "object files" ;
+  rdfs:range "scorep:Object" .
+
+<scorep:object>
+  a rdf:Property ;
+  rdfs:comment "The object file used in an instrumentation." ;
+  rdfs:label "object" ;
+  rdfs:range "xsd:string" .
+
+<scorep:program>
+  a rdf:Property ;
+  rdfs:comment "The name of the run executable" ;
+  rdfs:domain "scorep:Experiment" ;
+  rdfs:label "program" ;
+  rdfs:range "xsd:string" .
+
+<scorep:runBinary>
+  a rdf:Property ;
+  rdfs:comment "The executed binary" ;
+  rdfs:domain "scorep:Experiment" ;
+  rdfs:label "runBinary" ;
+  rdfs:range "scorep:Binary" .
+
+<scorep:shared-library>
+  a rdf:Property ;
+  rdfs:comment "The linked shared-library" ;
+  rdfs:label "shared-library" ;
+  rdfs:range "xsd:string" .
+
+<scorep:source-file>
+  a rdf:Property ;
+  rdfs:comment "The source file used in an instrumentation." ;
+  rdfs:label "source file" ;
+  rdfs:range "xsd:string" .
+
+<scorep:source-language>
+  a rdf:Property ;
+  rdfs:comment "The programming language of the source code." ;
+  rdfs:label "source language" ;
+  rdfs:range "xsd:string" .
+
+<scorep:sourceHash>
+  a rdf:Property ;
+  rdfs:comment "The Jenkins One-at-a-time-hash of the source file." ;
+  rdfs:label "Hash of the source file" .
+
