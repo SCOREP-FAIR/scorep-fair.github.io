@@ -26,20 +26,20 @@ scorep:compiler-flags
   a rdf:Property ;
   rdfs:comment "The compiler flags used" ;
   rdfs:label "compiler flags" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:compiler
   a rdf:Property ;
   rdfs:comment "The compiler used for the instrumentation." ;
   rdfs:label "compiler" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:datetime
   a rdf:Property ;
   rdfs:comment "A timestamp for when an event occurred." ;
-  rdfs:domain "rdfs:Resource" ;
+  rdfs:domain rdfs:Resource ;
   rdfs:label "datetime" ;
-  rdfs:range "xsd:datetime" .
+  rdfs:range xsd:datetime .
 
 scorep:elfHash
   a rdf:Property ;
@@ -49,88 +49,88 @@ scorep:elfHash
 scorep:envName
   a rdf:Property ;
   rdfs:comment "The name of an environment variable." ;
-  rdfs:domain "scorep:EnvironmentVariable" ;
+  rdfs:domain scorep:EnvironmentVariable ;
   rdfs:label "name" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:envValue
   a rdf:Property ;
   rdfs:comment "The value of a set environment variable." ;
-  rdfs:domain "scorep:EnvironmentVariable" ;
+  rdfs:domain scorep:EnvironmentVariable ;
   rdfs:label "value" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:environment
   a rdf:Property ;
   rdfs:comment "The environment in which an experiment or instrumentation is conducted." ;
-  rdfs:domain "rdfs:Resource" ;
+  rdfs:domain rdfs:Resource ;
   rdfs:label "environment" ;
-  rdfs:range "scorep:EnvironmentVariable" .
+  rdfs:range scorep:EnvironmentVariable .
 
 scorep:executable
   a rdf:Property ;
   rdfs:comment "The final executable" ;
   rdfs:label "executable" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:mpiVersion
   a rdf:Property ;
   rdfs:comment "Version of MPI during compile time" ;
-  rdfs:domain "scorep:Experiment" ;
+  rdfs:domain scorep:Experiment ;
   rdfs:label "MPI-Version" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:mppSize
   a rdf:Property ;
   rdfs:comment "Worldsize of Multiprocess tracing" ;
-  rdfs:domain "scorep:Experiment" ;
+  rdfs:domain scorep:Experiment ;
   rdfs:label "mpp-size" ;
-  rdfs:range "xsd:integer" .
+  rdfs:range xsd:integer .
 
 scorep:object-files
   a rdf:Property ;
   rdfs:comment "The object files used to link the object." ;
-  rdfs:domain "scorep:Binary" ;
+  rdfs:domain scorep:Binary ;
   rdfs:label "object files" ;
-  rdfs:range "scorep:Object" .
+  rdfs:range scorep:Object .
 
 scorep:object
   a rdf:Property ;
   rdfs:comment "The object file used in an instrumentation." ;
   rdfs:label "object" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:program
   a rdf:Property ;
   rdfs:comment "The name of the run executable" ;
-  rdfs:domain "scorep:Experiment" ;
+  rdfs:domain scorep:Experiment ;
   rdfs:label "program" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:runBinary
   a rdf:Property ;
   rdfs:comment "The executed binary" ;
-  rdfs:domain "scorep:Experiment" ;
+  rdfs:domain scorep:Experiment ;
   rdfs:label "runBinary" ;
-  rdfs:range "scorep:Binary" .
+  rdfs:range scorep:Binary .
 
 scorep:shared-library
   a rdf:Property ;
   rdfs:comment "The linked shared-library" ;
   rdfs:label "shared-library" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:source-file
   a rdf:Property ;
   rdfs:comment "The source file used in an instrumentation." ;
   rdfs:label "source file" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:source-language
   a rdf:Property ;
   rdfs:comment "The programming language of the source code." ;
   rdfs:label "source language" ;
-  rdfs:range "xsd:string" .
+  rdfs:range xsd:string .
 
 scorep:sourceHash
   a rdf:Property ;
