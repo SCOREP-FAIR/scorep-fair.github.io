@@ -155,3 +155,24 @@ scorep:flagString a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "flag string" ;
     rdfs:comment "A raw string representing compilation or linking flags." .
+
+scorep:usesProgram a owl:ObjectProperty ;
+    rdfs:domain scorep:ExperimentRun ;
+    rdfs:range scorep:Program ;
+    rdfs:label "uses the program" .
+
+scorep:Program a owl:Class;
+    rdfs:label "Program" ;
+    rdfs:comment "The executed program for this experiment" .
+
+scorep:programArguments a owl:DatatypeProperty ;
+    rdfs:domain scorep:Program ;
+    rdfs:range xsd:string ;
+    rdfs:label "program arguments" ;
+    rdfs:comment "A raw string representing the arguments of the executed program" .
+
+scorep:programName a owl:DatatypeProperty ;
+    rdfs:domain scorep:Program ;
+    rdfs:range xsd:string ;
+    rdfs:label "program name" ;
+    rdfs:comment "A raw string representing the name of the executed program" .
