@@ -17,7 +17,7 @@ scorep:Subsystem a owl:Class ;
     rdfs:label "Subsystem" ;
     rdfs:comment "A subsystem used in the experiment run" .
 
-scorep:configuration a owl:ObjectProperty ;
+scorep:hasConfiguration a owl:ObjectProperty ;
     rdfs:domain scorep:Subsystem ;
     rdfs:range scorep:ConfigEntry ;
     rdfs:label "configuration" .
