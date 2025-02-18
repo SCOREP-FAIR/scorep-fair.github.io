@@ -1,0 +1,157 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix scorep: <https://www.scorep-fair.github.io/schema/v1/ontology.ttl#> .
+
+scorep:ExperimentRun a owl:Class ;
+    rdfs:label "Experiment Run" ;
+    rdfs:comment "An instance of a recorded experiment" .
+
+scorep:usesSubsystems a owl:ObjectProperty ;
+    rdfs:domain scorep:ExperimentRun ;
+    rdfs:range scorep:Subsystem ;
+    rdfs:label "uses subsystems" .
+
+scorep:Subsystem a owl:Class ;
+    rdfs:label "Subsystem" ;
+    rdfs:comment "A subsystem used in the experiment run" .
+
+scorep:configuration a owl:ObjectProperty ;
+    rdfs:domain scorep:Subsystem ;
+    rdfs:range scorep:ConfigEntry ;
+    rdfs:label "configuration" .
+
+scorep:ConfigEntry a owl:Class ;
+    rdfs:label "Configuration Entry" ;
+    rdfs:comment "Configuration parameters for a subsystem" .
+
+scorep:value a owl:DatatypeProperty ;
+    rdfs:domain scorep:ConfigEntry , scorep:EnvironmentVariable ;
+    rdfs:range xsd:string ;
+    rdfs:label "variable value" .
+
+scorep:Object a owl:Class ;
+    rdfs:label "Object" ;
+    rdfs:comment "A compiled object file" .
+
+scorep:sourceFile a owl:DatatypeProperty ;
+    rdfs:domain scorep:Object ;
+    rdfs:range xsd:string ;
+    rdfs:label "source file" .
+
+scorep:sourceLanguage a owl:DatatypeProperty ;
+    rdfs:domain scorep:Object ;
+    rdfs:range xsd:string ;
+    rdfs:label "source language" .
+
+scorep:timestamp a owl:DatatypeProperty ;
+    rdfs:domain scorep:Object , scorep:LinkedObject , scorep:ExperimentRun ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "timestamp" .
+
+scorep:scorepVersion a owl:DatatypeProperty ;
+    rdfs:domain scorep:Object , scorep:LinkedObject ;
+    rdfs:range xsd:string ;
+    rdfs:label "Score-P version" .
+
+scorep:scorepRevision a owl:DatatypeProperty ;
+    rdfs:domain scorep:Object , scorep:LinkedObject ;
+    rdfs:range xsd:string ;
+    rdfs:label "Score-P revision" .
+
+scorep:sourceHash a owl:DatatypeProperty ;
+    rdfs:domain scorep:Object ;
+    rdfs:range xsd:string ;
+    rdfs:label "source hash" .
+
+scorep:isConstructedFrom a owl:ObjectProperty ;
+    rdfs:domain scorep:Executable ;
+    rdfs:range scorep:Object ;
+    rdfs:label "is constructed from" .
+
+scorep:Executable a owl:Class ;
+    rdfs:subClassOf scorep:LinkedObject ;
+    rdfs:label "Executable" ;
+    rdfs:comment "An executable binary file" .
+
+scorep:isCompiledBy a owl:ObjectProperty ;
+    rdfs:domain scorep:Object ;
+    rdfs:range scorep:Compiler ;
+    rdfs:label "is compiled by" .
+
+scorep:Compiler a owl:Class ;
+    rdfs:label "Compiler" ;
+    rdfs:comment "A compiler used to build an object file" .
+
+scorep:idString a owl:DatatypeProperty ;
+    rdfs:domain scorep:Compiler ;
+    rdfs:range xsd:string ;
+    rdfs:label "ID string" .
+
+scorep:hasEnvironmentContext a owl:ObjectProperty ;
+    rdfs:domain scorep:ExperimentRun , scorep:LinkedObject , scorep:Object ;
+    rdfs:range scorep:EnvironmentContext ;
+    rdfs:label "has environment context" .
+
+scorep:EnvironmentContext a owl:Class ;
+    rdfs:label "Environment Context" ;
+    rdfs:comment "Runtime environment variables" .
+
+scorep:hasEnvironmentVariable a owl:ObjectProperty ;
+    rdfs:domain scorep:EnvironmentContext ;
+    rdfs:range scorep:EnvironmentVariable ;
+    rdfs:label "has environment variable" .
+
+scorep:EnvironmentVariable a owl:Class ;
+    rdfs:label "Environment Variable" ;
+    rdfs:comment "An environment variable set during the experiment run" .
+
+scorep:name a owl:DatatypeProperty ;
+    rdfs:domain scorep:EnvironmentVariable , scorep:ConfigEntry , scorep:Object , scorep:LinkedObject ;
+    rdfs:range xsd:string ;
+    rdfs:label "name" .
+
+scorep:storeLocation a owl:DatatypeProperty ;
+    rdfs:domain scorep:ExperimentRun ;
+    rdfs:range xsd:string ;
+    rdfs:label "store location" .
+
+scorep:Flags a owl:Class ;
+    rdfs:label "Flags" ;
+    rdfs:comment "Compilation flags used in an object" .
+
+scorep:usesFlags a owl:ObjectProperty ;
+    rdfs:domain scorep:Object , scorep:LinkedObject ;
+    rdfs:range scorep:Flags ;
+    rdfs:label "uses flags" .
+
+scorep:usesExecutable a owl:ObjectProperty ;
+    rdfs:domain scorep:ExperimentRun ;
+    rdfs:range scorep:Executable ;
+    rdfs:label "uses executable" .
+
+scorep:SharedObject a owl:Class ;
+    rdfs:subClassOf scorep:LinkedObject ;
+    rdfs:label "Shared Object" ;
+    rdfs:comment "A shared library used by an executable" .
+
+scorep:usesSharedObject a owl:ObjectProperty ;
+    rdfs:domain scorep:ExperimentRun ;
+    rdfs:range scorep:SharedObject ;
+    rdfs:label "uses shared object" .
+
+scorep:isLinkedBy a owl:ObjectProperty ;
+    rdfs:domain scorep:LinkedObject ;
+    rdfs:range scorep:Compiler ;
+    rdfs:label "is linked by" .
+
+scorep:LinkedObject a owl:Class ;
+    rdfs:label "Linked Object" ;
+    rdfs:comment "A compiled object file that is linked during the build process. Can be an executable or a shared object." .
+
+scorep:flagString a owl:DatatypeProperty ;
+    rdfs:domain scorep:Flags ;
+    rdfs:range xsd:string ;
+    rdfs:label "flag string" ;
+    rdfs:comment "A raw string representing compilation or linking flags." .
