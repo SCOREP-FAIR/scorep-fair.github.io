@@ -127,7 +127,7 @@ scorep:usesFlags a owl:ObjectProperty ;
     rdfs:label "uses flags" .
 
 scorep:usesExecutable a owl:ObjectProperty ;
-    rdfs:domain scorep:ExperimentRun ;
+    rdfs:domain scorep:Program ;
     rdfs:range scorep:Executable ;
     rdfs:label "uses executable" .
 
@@ -137,7 +137,7 @@ scorep:SharedObject a owl:Class ;
     rdfs:comment "A shared library used by an executable" .
 
 scorep:usesSharedObject a owl:ObjectProperty ;
-    rdfs:domain scorep:ExperimentRun ;
+    rdfs:domain scorep:Program ;
     rdfs:range scorep:SharedObject ;
     rdfs:label "uses shared object" .
 
