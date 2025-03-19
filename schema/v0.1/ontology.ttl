@@ -9,7 +9,7 @@ scorep:ExperimentRun a owl:Class ;
     rdfs:comment "An instance of a recorded experiment" .
 
 scorep:usesSubsystems a owl:ObjectProperty ;
-    rdfs:domain scorep:ExperimentRun ;
+    rdfs:domain scorep:Program ;
     rdfs:range scorep:Subsystem ;
     rdfs:label "uses subsystems" .
 
@@ -90,7 +90,7 @@ scorep:idString a owl:DatatypeProperty ;
     rdfs:label "ID string" .
 
 scorep:hasEnvironmentContext a owl:ObjectProperty ;
-    rdfs:domain scorep:ExperimentRun , scorep:LinkedObject , scorep:Object ;
+    rdfs:domain scorep:Program , scorep:LinkedObject , scorep:Object ;
     rdfs:range scorep:EnvironmentContext ;
     rdfs:label "has environment context" .
 
