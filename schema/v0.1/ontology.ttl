@@ -35,13 +35,8 @@ scorep:Object a owl:Class ;
     rdfs:label "Object" ;
     rdfs:comment "A compiled object file" .
 
-scorep:sourceFile a owl:DatatypeProperty ;
-    rdfs:domain scorep:Object ;
-    rdfs:range xsd:string ;
-    rdfs:label "source file" .
-
-scorep:sourceLanguage a owl:DatatypeProperty ;
-    rdfs:domain scorep:Object ;
+scorep:language a owl:DatatypeProperty ;
+    rdfs:domain scorep:Source ;
     rdfs:range xsd:string ;
     rdfs:label "source language" .
 
@@ -59,11 +54,6 @@ scorep:scorepRevision a owl:DatatypeProperty ;
     rdfs:domain scorep:Object , scorep:LinkedObject ;
     rdfs:range xsd:string ;
     rdfs:label "Score-P revision" .
-
-scorep:sourceHash a owl:DatatypeProperty ;
-    rdfs:domain scorep:Object ;
-    rdfs:range xsd:string ;
-    rdfs:label "source hash" .
 
 scorep:isConstructedFrom a owl:ObjectProperty ;
     rdfs:domain scorep:Executable ;
@@ -108,7 +98,7 @@ scorep:EnvironmentVariable a owl:Class ;
     rdfs:comment "An environment variable set during the experiment run" .
 
 scorep:name a owl:DatatypeProperty ;
-    rdfs:domain scorep:EnvironmentVariable , scorep:ConfigEntry , scorep:Object , scorep:LinkedObject ;
+    rdfs:domain scorep:EnvironmentVariable , scorep:ConfigEntry , scorep:Object , scorep:LinkedObject , scorep:Source ;
     rdfs:range xsd:string ;
     rdfs:label "name" .
 
@@ -161,7 +151,7 @@ scorep:usesProgram a owl:ObjectProperty ;
     rdfs:range scorep:Program ;
     rdfs:label "uses the program" .
 
-scorep:Program a owl:Class;
+scorep:Program a owl:Class ;
     rdfs:label "Program" ;
     rdfs:comment "The executed program for this experiment" .
 
@@ -176,3 +166,12 @@ scorep:programName a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "program name" ;
     rdfs:comment "A raw string representing the name of the executed program" .
+
+scorep:Source a owl:Class;
+    rdfs:label "Source" ;
+    rdfs:comment "The source file" .
+
+scorep:hasSource a owl:ObjectProperty ;
+    rdfs:domain scorep:Object ;
+    rdfs:range scorep:Source ;
+    rdfs:label "source file" .
