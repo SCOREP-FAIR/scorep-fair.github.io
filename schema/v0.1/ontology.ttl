@@ -98,7 +98,7 @@ scorep:EnvironmentVariable a owl:Class ;
     rdfs:comment "An environment variable set during the experiment run" .
 
 scorep:name a owl:DatatypeProperty ;
-    rdfs:domain scorep:EnvironmentVariable , scorep:ConfigEntry , scorep:Object , scorep:LinkedObject , scorep:Source ;
+    rdfs:domain scorep:EnvironmentVariable , scorep:ConfigEntry , scorep:Object , scorep:LinkedObject , scorep:Source , scorep:Subsystem ;
     rdfs:range xsd:string ;
     rdfs:label "name" .
 
